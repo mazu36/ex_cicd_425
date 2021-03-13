@@ -23,7 +23,7 @@ jobs:
               --stack-name my-stack
             return 1
       - destroy_environments
-          when: on fail
+        when: on fail
 workflows:
   my_workflow:
     jobs:
