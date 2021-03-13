@@ -22,7 +22,7 @@ jobs:
               --template-file template.yml \
               --stack-name my-stack
       - run:
-          command:
+          command: |
             a=1
             b=1
             if ${a} == ${b}
