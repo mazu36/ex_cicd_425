@@ -23,6 +23,7 @@ jobs:
               --template-file template.yml \
               --stack-name my-stack
       - run:
+          name: Error simulation
           command: |
             echo 'hello'
             return 1
