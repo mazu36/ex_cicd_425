@@ -23,9 +23,10 @@ jobs:
               --stack-name my-stack
       - run:
           name: Simulation error
-          command : return 1
+          command: |
+            return 1
       - destroy_environments
-          when: on_fail
+
 workflows:
   my_workflow:
     jobs:
