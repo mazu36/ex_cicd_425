@@ -21,7 +21,9 @@ jobs:
             aws cloudformation deploy \
               --template-file template.yml \
               --stack-name my-stack
-            return 1
+      - run:
+          name: Simulation error
+          command : return 1
       - destroy_environments
         when: on fail
 workflows:
