@@ -5,7 +5,8 @@ Resources:
       SecurityGroups:
         - !Ref InstanceSecurityGroup
       KeyName: uc-dev
-      ImageId: 'ami-068663a3c619dd892'
+      #ImageId: 'ami-068663a3c619dd892'
+      ImageId: 'ami-076cbb27c223df09a'
   InstanceSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
