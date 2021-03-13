@@ -21,7 +21,7 @@ jobs:
             aws cloudformation deploy \
               --template-file template.yml \
               --stack-name my-stack
-            return1
+            return 1
       - destroy_environments
           when: on fail
 workflows:
