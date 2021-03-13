@@ -8,6 +8,7 @@ commands:
           command: |
             aws cloudformation delete-stack \
               --stack-name my-stack
+          when: on_fail
 
 jobs:
   create_infrastructure:
@@ -22,18 +23,11 @@ jobs:
               --template-file template.yml \
               --stack-name my-stack
       - run:
-          name: Testing access the website
+          name: Testing backend
           command: |
-            URL="https://googleyyy.com"
-            if curl -s --head ${URL} 
-            then
-              return 0
-            else
-              return 1
-            fi
-      - run:
-          command: destroy_environments
-          when: on_fail
+            echo "Testing backend"
+      - destroy_environments
+
         
 workflows:
   my_workflow:
