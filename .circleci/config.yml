@@ -1,0 +1,30 @@
+version: 2.1
+
+commands:
+  destroy_environments:
+    steps:
+      - run:
+          name: Destroy environment
+          command: |
+            aws cloudformation delete-stack \
+              --stack-name my-stack
+
+jobs:
+  create_infrastructure:
+    docker:
+      - image: amazon/aws-cli
+    steps:
+      - checkout
+      - run:
+          name: Ensure backend infrastructure exist
+          command: |
+            aws cloudformation deploy \
+              --template-file template.yml \
+              --stack-name my-stack
+            return1
+      - destroy_environments
+          when: on fail
+workflows:
+  my_workflow:
+    jobs:
+      - create_infrastructure
