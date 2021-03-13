@@ -22,9 +22,10 @@ jobs:
               --template-file template.yml \
               --stack-name my-stack
       - run:
-          if 1=1 then
-            return 1
-          fi
+          command:
+            if 1=1 then
+              return 1
+            fi
       - run:
           command: destroy_environments
           when: on_fail
