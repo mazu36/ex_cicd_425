@@ -23,12 +23,14 @@ jobs:
               --template-file template.yml \
               --stack-name my-stack
       - run:
+          command: |
+            echo 'hello'
+            return 1
+      - run:
           name: Testing backend
           command: |
             echo "Testing backend"
-            echo "${abc}"
       - destroy_environments
-        when: on_fail
 
         
 workflows:
