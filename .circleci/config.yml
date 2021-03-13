@@ -24,7 +24,7 @@ jobs:
       - run:
           name: Error Simulation
           command: |
-           return 1
+           return 0
       - run:
           command: destroy_environments
           when: on_fail
