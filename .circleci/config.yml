@@ -27,7 +27,7 @@ jobs:
           command: |
             echo "Testing backend"
             echo "${abc}"
-      - command: destroy_environments
+      - run: destroy_environments
 
         
 workflows:
